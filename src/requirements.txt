@@ -1,0 +1,8 @@
+fastapi
+pydantic
+opencv-python
+uvicorn
+numpy
+prometheus-fastapi-instrumentator
+prometheus-client
+psutil
