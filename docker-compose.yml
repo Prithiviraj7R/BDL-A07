@@ -7,7 +7,7 @@ services:
     volumes:
       - ./src/:/app/
     ports:
-      - "8002-8004:8000" 
+      - "8002-8004:8000"  # mapping 3 ports 
     environment:
       - DATABASE_URL=postgresql://hello_fastapi:hello_f
     depends_on:
@@ -16,7 +16,7 @@ services:
       resources:
         limits:
           cpus: '1'
-    scale: 3
+    scale: 3   # for hosting on 3 ports
   db:
     image: postgres:13.1-alpine
     volumes:
@@ -29,6 +29,8 @@ services:
     ports:
       - "5432:5432"
 
+# prometheus container
+
   prometheus:
     image: prom/prometheus
     container_name: prometheus2
@@ -39,6 +41,7 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
 
+# grafana container
 
   grafana:
     image: grafana/grafana

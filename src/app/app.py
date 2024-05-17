@@ -11,7 +11,7 @@ import psutil
 app = FastAPI()
 Instrumentator().instrument(app).expose(app)
 
-# Custom metrics
+# Custom metrics for tracking
 ip_counter = Gauge('api_requests_by_ip', 'Number of requests by IP address', ['ip'])
 api_runtime_gauge = Gauge('api_runtime', 'API runtime in milliseconds')
 api_tl_time_gauge = Gauge('api_tl_time', 'API T/L time in microseconds per character')
